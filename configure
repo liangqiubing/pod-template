@@ -6,5 +6,5 @@ Dir[File.join($current_dir, "setup/*.rb")].each do |file|
 end
 
 pod_name = ARGV.shift
-user_name = ARGV.shift
+user_name = File.basename(File.expand_path(".."))
 Pod::TemplateConfigurator.new(pod_name, user_name).run
