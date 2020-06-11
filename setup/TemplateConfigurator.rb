@@ -6,8 +6,9 @@ module Pod
 
     attr_reader :pod_name, :user_name, :pods_for_podfile, :prefixes, :test_example_file, :username, :email
 
-    def initialize(pod_name)
+    def initialize(pod_name,user_name)
       @pod_name = pod_name
+      @user_name = user_name
       @pods_for_podfile = []
       @prefixes = []
       @message_bank = MessageBank.new(self)
