@@ -4,7 +4,7 @@ require 'colored2'
 module Pod
   class TemplateConfigurator
 
-    attr_reader :pod_name, :pods_for_podfile, :prefixes, :test_example_file, :username, :email
+    attr_reader :pod_name, :user_name, :pods_for_podfile, :prefixes, :test_example_file, :username, :email
 
     def initialize(pod_name)
       @pod_name = pod_name
@@ -70,13 +70,14 @@ module Pod
     def run
       @message_bank.welcome_message
 
-      platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
-
+#      platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
+        platform = :ios
       case platform
         when :macos
           ConfigureMacOSSwift.perform(configurator: self)
         when :ios
-          framework = self.ask_with_answers("What language do you want to use?", ["Swift", "ObjC"]).to_sym
+#          framework = self.ask_with_answers("What language do you want to use?", ["Swift", "ObjC"]).to_sym
+            framework = :swift
           case framework
             when :swift
               ConfigureSwift.perform(configurator: self)
@@ -193,15 +194,15 @@ module Pod
 
     #----------------------------------------#
 
-    def user_name
-      (ENV['GIT_COMMITTER_NAME'] || github_user_name || `git config user.name` || `<GITHUB_USERNAME>` ).strip
-    end
-
-    def github_user_name
-      github_user_name = `security find-internet-password -s github.com | grep acct | sed 's/"acct"<blob>="//g' | sed 's/"//g'`.strip
-      is_valid = github_user_name.empty? or github_user_name.include? '@'
-      return is_valid ? nil : github_user_name
-    end
+#    def user_name
+#      (ENV['GIT_COMMITTER_NAME'] || github_user_name || `git config user.name` || `<GITHUB_USERNAME>` ).strip
+#    end
+#
+#    def github_user_name
+#      github_user_name = `security find-internet-password -s github.com | grep acct | sed 's/"acct"<blob>="//g' | sed 's/"//g'`.strip
+#      is_valid = github_user_name.empty? or github_user_name.include? '@'
+#      return is_valid ? nil : github_user_name
+#    end
 
     def user_email
       (ENV['GIT_COMMITTER_EMAIL'] || `git config user.email`).strip
