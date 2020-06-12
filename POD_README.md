@@ -18,7 +18,7 @@ pod '${POD_NAME}'
 
 ## Author
 
-Qiubing Liang, ${USER_EMAIL}
+Liang Qiubing, ${USER_EMAIL}
 
 ## License
 
