@@ -39,6 +39,6 @@ push_git_tags
 # pod_lib_lint(allow_warnings: true)
 # 因为本地索引库repo的名字是基本上不会去改变的，所以这里直接写死 LXFSpecs
 # podspec的名字需要由外界传入
-pod_push(repo: "Spec", allow_warnings:true, sources:"https://github.com/CocoaPods/Specs.git")
+pod_push(repo: "Spec", allow_warnings:true, sources:"https://gitee.com/zhi_lei/Spec.git,https://github.com/CocoaPods/Specs.git")
 
 end
