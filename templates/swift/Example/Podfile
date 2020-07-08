@@ -1,4 +1,7 @@
-use_frameworks!
+use_modular_headers!
+
+source 'https://gitee.com/zhi_lei/Spec.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target '${POD_NAME}_Example' do
   pod '${POD_NAME}', :path => '../'

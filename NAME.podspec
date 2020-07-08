@@ -27,15 +27,31 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+
   s.swift_version = '5.0'
 
   s.source_files = '${POD_NAME}/Classes/**/*'
   
+  # s.subspec 'SS' do |ss|
+  #   ss.source_files = '${POD_NAME}/Classes/SS/**/*'
+  # end
+
+  # s.vendored_libraries = '${POD_NAME}/Classes/*.a'
+
+  # s.vendored_frameworks = '${POD_NAME}/Classes/*.framework'
+  
+  # s.resource = '${POD_NAME}/Classes/*.bundle'
+
   # s.resource_bundles = {
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
+
+  # s.libraries = 'sqlite3', 'c++', 'z'
+
   # s.frameworks = 'UIKit', 'MapKit'
+
   # s.dependency 'AFNetworking', '~> 2.3'
+
 end
